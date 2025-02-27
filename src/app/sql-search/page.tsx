@@ -1,20 +1,24 @@
-import { db, writeQuery } from "@/sql-search"
-import { getQueryPromptTemplate } from "@/sql-search/prompt"
+"use client"
+import { useEffect, useState } from "react"
 
-export default async function Page() {
-  const result = await db.run("SELECT * FROM Artist LIMIT 10;")
-//   const queryPromptTemplate = await getQueryPromptTemplate()
+export default function Page() {
+  const [query, setQuery] = useState()
 
-  const query = await writeQuery({ question: "How many Employees are there?" })
-
-  console.log("result", result)
-  console.log("query", query)
+  useEffect(() => {
+    const search = async () => {
+      const response = await fetch("/api/sql-search")
+      const data = await response.json()
+      console.log("query", data)
+      setQuery(data.data.query)
+    }
+    search()
+  }, [])
 
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center">
       <div>SqlSearch</div>
       <pre className="whitespace-pre-wrap break-words">
-        {/* {JSON.stringify(query, null, 2)} */}
+        {query && JSON.stringify(query, null, 2)}
       </pre>
     </div>
   )

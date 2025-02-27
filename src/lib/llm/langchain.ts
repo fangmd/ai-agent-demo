@@ -1,7 +1,7 @@
-import { ChatOpenAI } from "@langchain/openai"
+import { ChatDeepSeek } from "@langchain/deepseek"
 
-// llm
-export const dsLangchainLLM = new ChatOpenAI({
+// llm deepseek 官方
+export const dsLangchainLLM = new ChatDeepSeek({
   openAIApiKey: process.env.DEEPSEEK_API_KEY,
   temperature: 0, // 控制模型输出随机性的参数， 0 表示确定性输出
   model: "deepseek-chat",
@@ -10,8 +10,8 @@ export const dsLangchainLLM = new ChatOpenAI({
   },
 })
 
-// llm
-export const dsLLM2 = new ChatOpenAI({
+// llm 火山引擎
+export const dsLLM2 = new ChatDeepSeek({
   openAIApiKey: process.env.DEEPSEEK_API_KEY_HUOS,
   temperature: 0, // 控制模型输出随机性的参数， 0 表示确定性输出
   model: "deepseek-r1-250120",
@@ -21,7 +21,7 @@ export const dsLLM2 = new ChatOpenAI({
 })
 
 // llm
-export const openaiLangchainLLM = new ChatOpenAI({
+export const openaiLangchainLLM = new ChatDeepSeek({
   openAIApiKey: process.env.OPENAI_API_KEY,
   temperature: 0, // 控制模型输出随机性的参数， 0 表示确定性输出
   model: "gpt-4o-mini",
