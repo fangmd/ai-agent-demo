@@ -5,11 +5,13 @@
 ## Agent Framework
 
 - https://github.com/vercel/ai
+- https://mastra.ai/docs
 - https://js.langchain.com/docs/introduction/
 
 
 ## 案例
 
+- [x] simple chat
 - [x] 基于数据库的问答系统
 
 ## 基于数据库的问答系统
