@@ -53,21 +53,24 @@ app.get('/reflecting', async (c) => {
   })
 })
 
-app.get('/recruiter', async (c) => {
+app.post('/recruiter', async (c) => {
+  const { resumeText }: { resumeText: string } = await c.req.json()
+
   const { runId, start } = mastra.getWorkflow('candidateWorkflow').createRun()
-
   console.log('Run', runId)
-
   const runResult = await start({
-    triggerData: { resumeText: 'Simulated resume content...' },
+    triggerData: {
+      resumeText: resumeText,
+    },
   })
-
   console.log('Final output:', runResult.results)
 
   return c.json({
     code: 200,
     message: 'Hello from Hono!',
-    data: {},
+    data: {
+      result: runResult.results,
+    },
   })
 })
 
