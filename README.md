@@ -14,6 +14,7 @@
 - [x] simple chat
 - [x] 基于数据库的问答系统
 - [x] AI Recruiter
+- [x] Self-Reflecting
 
 
 ## 基于数据库的问答系统
