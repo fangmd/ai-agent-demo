@@ -4,6 +4,7 @@ import { handle } from 'hono/vercel'
 import { streamText, Message } from 'ai'
 import { deepseek } from '@ai-sdk/deepseek'
 import { mastra } from '@/mastra'
+import { translateWithFeedback, translateWithFeedbackV2 } from '@/reflecting'
 
 export const runtime = 'nodejs'
 
@@ -45,11 +46,17 @@ app.post('/chat', async (c) => {
   return result.toDataStreamResponse()
 })
 
-app.get('/reflecting', async (c) => {
+app.post('/reflecting', async (c) => {
+  const { text }: { text: string } = await c.req.json()
+  const result = await translateWithFeedbackV2(text, 'zh')
+  console.log('result', result)
+
   return c.json({
     code: 200,
     message: 'Hello from Hono!',
-    data: {},
+    data: {
+      result,
+    },
   })
 })
 
