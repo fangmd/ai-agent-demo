@@ -1,75 +1,141 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HealthyHabits - Habit Detail</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://unpkg.com/@tailwindcss/typography@0.5.9/typography.css">
+    <link rel="stylesheet" href="https://unpkg.com/lucide-static@latest/font/lucide.css">
 </head>
-<body class="bg-gradient-to-br from-cyan-100 to-blue-100 min-h-screen p-8">
-
-<div class="flex space-x-6 overflow-x-auto pb-4">
-
-    <!-- 习惯详情主页面 -->
-    <div class="mockup-phone border-blue-200/50">
-        <div class="phone-1 artboard artboard-demo bg-[#f8fafc]/30 backdrop-blur-lg">
-            <div class="p-4 space-y-6">
-                <!-- 导航栏 -->
-                <div class="flex items-center space-x-4">
-                    <button class="p-1.5">
-                        <img src="https://unpkg.com/lucide-static@latest/icons/chevron-left.svg" class="w-6 h-6 text-slate-600">
-                    </button>
-                    <h2 class="text-xl font-bold text-slate-700">Drinking Water</h2>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8">
+    <!-- 手机Mockup容器组 -->
+    <div class="flex gap-8">
+        <!-- 页面1：主行程列表 -->
+        <div class="w-80 h-812 bg-gray-900 rounded-[40px] p-4 shadow-2xl">
+            <div class="bg-white/80 backdrop-blur-lg rounded-[32px] h-full p-6">
+                <div class="flex items-center gap-3 mb-8">
+                    <img src="https://unpkg.com/lucide-static@latest/icons/compass.svg" class="w-8 h-8 text-blue-600">
+                    <h1 class="text-2xl font-bold text-gray-800">7月日本之旅</h1>
                 </div>
-
-                <!-- 进度环 -->
-                <div class="relative w-48 h-48 mx-auto">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-emerald-600">68%</div>
-                            <div class="text-sm text-slate-500">Weekly Progress</div>
-                        </div>
-                    </div>
-                    <svg class="transform -rotate-90 w-48 h-48">
-                        <circle cx="96" cy="96" r="88" class="stroke-current text-blue-100" 
-                                stroke-width="16" fill="transparent"/>
-                        <circle cx="96" cy="96" r="88" class="stroke-current text-emerald-500" 
-                                stroke-width="16" fill="transparent" stroke-dasharray="552.92"
-                                stroke-dashoffset="552.92" style="stroke-dashoffset: 176.92"/>
-                    </svg>
-                </div>
-
-                <!-- 快速记录面板 -->
-                <div class="bg-white/40 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white/50">
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <h3 class="font-semibold text-slate-700">Today's Progress</h3>
-                            <p class="text-sm text-slate-500">4/8 glasses completed</p>
-                        </div>
-                        <button class="bg-emerald-500/20 p-2 rounded-xl shadow-sm hover:bg-emerald-500/30 transition">
-                            <img src="https://unpkg.com/lucide-static@latest/icons/plus.svg" class="w-6 h-6 text-emerald-600">
-                        </button>
-                    </div>
-                    <div class="mt-3 grid grid-cols-4 gap-2">
-                        <div class="h-2 bg-emerald-500/30 rounded-full"></div>
-                        <div class="h-2 bg-emerald-500/30 rounded-full"></div>
-                        <div class="h-2 bg-emerald-500/30 rounded-full"></div>
-                        <div class="h-2 bg-emerald-500 rounded-full"></div>
-                    </div>
-                </div>
-
-                <!-- 历史记录时间轴 -->
+                
                 <div class="space-y-4">
-                    <h3 class="font-medium text-slate-600">Recent Activity</h3>
-                    <div class="space-y-3">
-                        <div class="flex items-center space-x-3">
-                            <div class="w-8 h-8 bg-emerald-500/20 rounded-full flex items-center justify-center">
-                                <img src="https://unpkg.com/lucide-static@latest/icons/check.svg" class="w-4 h-4 text-emerald-600">
+                    <div class="bg-white/90 p-4 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Day 1 - 东京</h3>
+                                <p class="text-sm text-gray-600">浅草寺 → 晴空塔 → 秋叶原</p>
                             </div>
-                            <div class="flex-1">
-                                <p class="text-sm font-medium text-slate-600">Completed 500ml</p>
-                                <p class="text-xs text-slate-400">10:30 AM</p>
+                            <img src="https://unpkg.com/lucide-static@latest/icons/chevron-right.svg" class="w-5 h-5 mt-1 text-gray-400">
+                        </div>
+                        <div class="mt-2 flex items-center gap-2">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-600 text-xs rounded-full">3个地点</span>
+                            <span class="px-2 py-1 bg-green-100 text-green-600 text-xs rounded-full">已优化</span>
+                        </div>
+                    </div>
+
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-blue-500/5 rounded-2xl transform group-hover:scale-105 transition-all"></div>
+                        <div class="relative bg-white/90 p-4 rounded-2xl">
+                            <div class="flex items-center gap-3">
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-gray-800">添加新行程日</h3>
+                                    <p class="text-sm text-gray-600">点击生成智能路线</p>
+                                </div>
+                                <img src="https://unpkg.com/lucide-static@latest/icons/plus-circle.svg" class="w-8 h-8 text-blue-600">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页面2：地点详情 -->
+        <div class="w-80 h-812 bg-gray-900 rounded-[40px] p-4 shadow-2xl">
+            <div class="bg-white/80 backdrop-blur-lg rounded-[32px] h-full p-6">
+                <div class="mb-6">
+                    <img src="https://source.unsplash.com/random/600x400?japan,temple" class="w-full h-48 rounded-2xl object-cover">
+                    <div class="mt-4 flex items-center justify-between">
+                        <h2 class="text-xl font-bold text-gray-800">浅草寺</h2>
+                        <img src="https://unpkg.com/lucide-static@latest/icons/bookmark.svg" class="w-6 h-6 text-red-500">
+                    </div>
+                    <div class="mt-2 flex items-center gap-2 text-sm text-gray-600">
+                        <img src="https://unpkg.com/lucide-static@latest/icons/clock.svg" class="w-4 h-4">
+                        <span>建议时长：2小时</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-white/90 p-4 rounded-xl">
+                        <div class="flex items-center gap-3">
+                            <img src="https://unpkg.com/lucide-static@latest/icons/train.svg" class="w-6 h-6 text-blue-600">
+                            <div>
+                                <h3 class="font-medium text-gray-800">交通方式</h3>
+                                <p class="text-sm text-gray-600">地铁银座线 - 浅草站</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/90 p-4 rounded-xl">
+                        <div class="flex items-center gap-3 mb-2">
+                            <img src="https://unpkg.com/lucide-static@latest/icons/users.svg" class="w-6 h-6 text-green-600">
+                            <h3 class="font-medium text-gray-800">实时协作</h3>
+                        </div>
+                        <div class="flex -space-x-2">
+                            <img src="https://i.pravatar.cc/40?img=1" class="w-8 h-8 rounded-full border-2 border-white">
+                            <img src="https://i.pravatar.cc/40?img=2" class="w-8 h-8 rounded-full border-2 border-white">
+                            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                <img src="https://unpkg.com/lucide-static@latest/icons/plus.svg" class="w-4 h-4 text-blue-600">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页面3：每日行程安排 -->
+        <div class="w-80 h-812 bg-gray-900 rounded-[40px] p-4 shadow-2xl">
+            <div class="bg-white/80 backdrop-blur-lg rounded-[32px] h-full p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <div>
+                        <h2 class="text-xl font-bold text-gray-800">Day 1 行程</h2>
+                        <p class="text-sm text-gray-600">7月15日 星期一</p>
+                    </div>
+                    <img src="https://unpkg.com/lucide-static@latest/icons/share-2.svg" class="w-6 h-6 text-gray-600">
+                </div>
+
+                <div class="space-y-4">
+                    <div class="relative pl-6">
+                        <div class="absolute left-0 top-4 w-4 h-4 bg-blue-500 rounded-full"></div>
+                        <div class="bg-white/90 p-4 rounded-xl shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <img src="https://unpkg.com/lucide-static@latest/icons/landmark.svg" class="w-6 h-6 text-amber-600">
+                                <div>
+                                    <h3 class="font-medium text-gray-800">浅草寺</h3>
+                                    <p class="text-sm text-gray-600">09:00 - 11:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-6">
+                        <div class="absolute left-0 top-4 w-4 h-4 bg-green-500 rounded-full"></div>
+                        <div class="bg-white/90 p-4 rounded-xl shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <img src="https://unpkg.com/lucide-static@latest/icons/tower-control.svg" class="w-6 h-6 text-red-600">
+                                <div>
+                                    <h3 class="font-medium text-gray-800">晴空塔</h3>
+                                    <p class="text-sm text-gray-600">11:30 - 13:30</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-6">
+                        <div class="absolute left-0 top-4 w-4 h-4 bg-purple-500 rounded-full"></div>
+                        <div class="bg-white/90 p-4 rounded-xl shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <img src="https://unpkg.com/lucide-static@latest/icons/shopping-cart.svg" class="w-6 h-6 text-blue-600">
+                                <div>
+                                    <h3 class="font-medium text-gray-800">秋叶原</h3>
+                                    <p class="text-sm text-gray-600">14:00 - 17:00</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -77,75 +143,5 @@
             </div>
         </div>
     </div>
-
-    <!-- 习惯设置页面 -->
-    <div class="mockup-phone border-blue-200/50">
-        <div class="phone-1 artboard artboard-demo bg-[#f8fafc]/30 backdrop-blur-lg">
-            <div class="p-4 space-y-6">
-                <div class="flex items-center justify-between">
-                    <h2 class="text-xl font-bold text-slate-700">Habit Settings</h2>
-                    <button class="p-1.5">
-                        <img src="https://unpkg.com/lucide-static@latest/icons/x.svg" class="w-6 h-6 text-slate-600">
-                    </button>
-                </div>
-
-                <!-- 设置表单 -->
-                <div class="space-y-5">
-                    <div class="space-y-1">
-                        <label class="text-sm font-medium text-slate-600">Daily Target</label>
-                        <div class="flex items-center bg-white/40 backdrop-blur-sm rounded-xl p-3">
-                            <input type="number" value="8" 
-                                   class="flex-1 bg-transparent text-lg font-medium text-slate-700">
-                            <span class="text-slate-500">times/day</span>
-                        </div>
-                    </div>
-
-                    <div class="space-y-1">
-                        <label class="text-sm font-medium text-slate-600">Reminders</label>
-                        <div class="bg-white/40 backdrop-blur-sm rounded-xl p-3 space-y-2">
-                            <div class="flex items-center justify-between">
-                                <span class="text-slate-600">9:00 AM</span>
-                                <button class="text-rose-500">
-                                    <img src="https://unpkg.com/lucide-static@latest/icons/trash-2.svg" class="w-5 h-5">
-                                </button>
-                            </div>
-                            <button class="w-full flex items-center justify-center space-x-2 text-blue-500 pt-2">
-                                <img src="https://unpkg.com/lucide-static@latest/icons/plus.svg" class="w-4 h-4">
-                                <span>Add Reminder</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- 高级设置开关 -->
-                    <div class="flex items-center justify-between bg-white/40 backdrop-blur-sm rounded-xl p-3">
-                        <div>
-                            <p class="font-medium text-slate-600">Progress Notifications</p>
-                            <p class="text-sm text-slate-500">Enable daily progress summary</p>
-                        </div>
-                        <label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<style>
-.switch { @apply relative inline-block w-12 h-6; }
-.switch input { @apply opacity-0 w-0 h-0; }
-.slider {
-    @apply absolute inset-0 bg-slate-200 rounded-full transition-all cursor-pointer;
-    &::before {
-        @apply content-[''] absolute left-1 bottom-1 w-4 h-4 bg-white rounded-full transition-all;
-    }
-}
-input:checked + .slider { @apply bg-emerald-500; }
-input:checked + .slider::before { @apply translate-x-6; }
-</style>
-
 </body>
 </html>

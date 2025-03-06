@@ -1,10 +1,12 @@
-import { runSqlSearchGraph, writeQuery } from '@/sql-search'
+import { runSqlSearchGraph } from '@/sql-search'
 import { Hono } from 'hono'
 import { handle } from 'hono/vercel'
 import { streamText, Message } from 'ai'
 import { deepseek } from '@ai-sdk/deepseek'
 import { mastra } from '@/mastra'
 import { translateWithFeedback, translateWithFeedbackV2 } from '@/reflecting'
+import { aiDeepseekLLMWithLog } from '@/lib/llm'
+import { text2codePromptV1 } from '@/lib/prompt/text2code'
 
 export const runtime = 'nodejs'
 
@@ -40,6 +42,18 @@ app.post('/chat', async (c) => {
 
   const result = streamText({
     model: deepseek('deepseek-reasoner'),
+    messages,
+  })
+
+  return result.toDataStreamResponse()
+})
+
+app.post('/chat2code', async (c) => {
+  const { messages }: { messages: Message[] } = await c.req.json()
+
+  const result = streamText({
+    model: aiDeepseekLLMWithLog,
+    system: text2codePromptV1,
     messages,
   })
 
