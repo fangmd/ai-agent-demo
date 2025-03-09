@@ -53,7 +53,7 @@ app.post('/chat2code', async (c) => {
 
   const result = streamText({
     model: aiDeepseekLLMWithLog,
-    system: text2codePromptV1,
+    // system: text2codePromptV1,
     messages,
   })
 

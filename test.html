@@ -1,144 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialGlass - Dynamic Feed</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/lucide-static@latest/font/lucide.css">
 </head>
-<body class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8">
-    <!-- 手机Mockup容器组 -->
-    <div class="flex gap-8">
-        <!-- 页面1：主行程列表 -->
-        <div class="w-80 h-812 bg-gray-900 rounded-[40px] p-4 shadow-2xl">
-            <div class="bg-white/80 backdrop-blur-lg rounded-[32px] h-full p-6">
-                <div class="flex items-center gap-3 mb-8">
-                    <img src="https://unpkg.com/lucide-static@latest/icons/compass.svg" class="w-8 h-8 text-blue-600">
-                    <h1 class="text-2xl font-bold text-gray-800">7月日本之旅</h1>
-                </div>
-                
-                <div class="space-y-4">
-                    <div class="bg-white/90 p-4 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="font-semibold text-gray-800">Day 1 - 东京</h3>
-                                <p class="text-sm text-gray-600">浅草寺 → 晴空塔 → 秋叶原</p>
-                            </div>
-                            <img src="https://unpkg.com/lucide-static@latest/icons/chevron-right.svg" class="w-5 h-5 mt-1 text-gray-400">
-                        </div>
-                        <div class="mt-2 flex items-center gap-2">
-                            <span class="px-2 py-1 bg-blue-100 text-blue-600 text-xs rounded-full">3个地点</span>
-                            <span class="px-2 py-1 bg-green-100 text-green-600 text-xs rounded-full">已优化</span>
-                        </div>
-                    </div>
-
-                    <div class="relative group">
-                        <div class="absolute inset-0 bg-blue-500/5 rounded-2xl transform group-hover:scale-105 transition-all"></div>
-                        <div class="relative bg-white/90 p-4 rounded-2xl">
-                            <div class="flex items-center gap-3">
-                                <div class="flex-1">
-                                    <h3 class="font-semibold text-gray-800">添加新行程日</h3>
-                                    <p class="text-sm text-gray-600">点击生成智能路线</p>
-                                </div>
-                                <img src="https://unpkg.com/lucide-static@latest/icons/plus-circle.svg" class="w-8 h-8 text-blue-600">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 页面2：地点详情 -->
-        <div class="w-80 h-812 bg-gray-900 rounded-[40px] p-4 shadow-2xl">
-            <div class="bg-white/80 backdrop-blur-lg rounded-[32px] h-full p-6">
-                <div class="mb-6">
-                    <img src="https://source.unsplash.com/random/600x400?japan,temple" class="w-full h-48 rounded-2xl object-cover">
-                    <div class="mt-4 flex items-center justify-between">
-                        <h2 class="text-xl font-bold text-gray-800">浅草寺</h2>
-                        <img src="https://unpkg.com/lucide-static@latest/icons/bookmark.svg" class="w-6 h-6 text-red-500">
-                    </div>
-                    <div class="mt-2 flex items-center gap-2 text-sm text-gray-600">
-                        <img src="https://unpkg.com/lucide-static@latest/icons/clock.svg" class="w-4 h-4">
-                        <span>建议时长：2小时</span>
-                    </div>
+<body class="bg-gradient-to-br from-indigo-100 to-purple-50 min-h-screen p-10">
+    <!-- Mockup 容器组 -->
+    <div class="flex gap-8 overflow-x-auto pb-4">
+        <!-- 主页 -->
+        <div class="mockup-phone border-indigo-200/50">
+            <div class="phone-screen bg-transparent p-4 space-y-6">
+                <!-- 导航栏 -->
+                <div class="flex justify-between items-center bg-white/20 backdrop-blur-lg rounded-2xl p-4 shadow-sm">
+                    <img src="https://unpkg.com/lucide-static@latest/icons/user.svg" class="w-6 h-6">
+                    <div class="text-xl font-bold text-indigo-900">SocialGlass</div>
+                    <img src="https://unpkg.com/lucide-static@latest/icons/bell.svg" class="w-6 h-6">
                 </div>
 
-                <div class="space-y-4">
-                    <div class="bg-white/90 p-4 rounded-xl">
-                        <div class="flex items-center gap-3">
-                            <img src="https://unpkg.com/lucide-static@latest/icons/train.svg" class="w-6 h-6 text-blue-600">
-                            <div>
-                                <h3 class="font-medium text-gray-800">交通方式</h3>
-                                <p class="text-sm text-gray-600">地铁银座线 - 浅草站</p>
-                            </div>
+                <!-- 动态卡片 -->
+                <div class="bg-white/30 backdrop-blur-lg rounded-xl p-4 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="https://source.unsplash.com/80x80/?portrait" class="w-10 h-10 rounded-full">
+                        <div>
+                            <h3 class="font-semibold text-indigo-900">Sarah_Lee</h3>
+                            <p class="text-xs text-indigo-500">2小时前 · 东京</p>
                         </div>
                     </div>
-
-                    <div class="bg-white/90 p-4 rounded-xl">
-                        <div class="flex items-center gap-3 mb-2">
-                            <img src="https://unpkg.com/lucide-static@latest/icons/users.svg" class="w-6 h-6 text-green-600">
-                            <h3 class="font-medium text-gray-800">实时协作</h3>
+                    <p class="text-indigo-800 mb-4">周末的富士山徒步之旅🗻 分享一些沿途的风景碎片</p>
+                    <div class="grid grid-cols-2 gap-2 mb-4">
+                        <img src="https://source.unsplash.com/600x400/?mountain" class="rounded-lg">
+                        <img src="https://source.unsplash.com/600x400/?forest" class="rounded-lg">
+                    </div>
+                    <div class="flex justify-between text-indigo-600">
+                        <div class="flex items-center gap-2">
+                            <img src="https://unpkg.com/lucide-static@latest/icons/heart.svg" class="w-5 h-5">
+                            <span>142</span>
                         </div>
-                        <div class="flex -space-x-2">
-                            <img src="https://i.pravatar.cc/40?img=1" class="w-8 h-8 rounded-full border-2 border-white">
-                            <img src="https://i.pravatar.cc/40?img=2" class="w-8 h-8 rounded-full border-2 border-white">
-                            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                                <img src="https://unpkg.com/lucide-static@latest/icons/plus.svg" class="w-4 h-4 text-blue-600">
-                            </div>
+                        <div class="flex items-center gap-2">
+                            <img src="https://unpkg.com/lucide-static@latest/icons/message-square.svg" class="w-5 h-5">
+                            <span>23</span>
                         </div>
+                        <img src="https://unpkg.com/lucide-static@latest/icons/share-2.svg" class="w-5 h-5">
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- 页面3：每日行程安排 -->
-        <div class="w-80 h-812 bg-gray-900 rounded-[40px] p-4 shadow-2xl">
-            <div class="bg-white/80 backdrop-blur-lg rounded-[32px] h-full p-6">
-                <div class="flex items-center justify-between mb-6">
-                    <div>
-                        <h2 class="text-xl font-bold text-gray-800">Day 1 行程</h2>
-                        <p class="text-sm text-gray-600">7月15日 星期一</p>
-                    </div>
-                    <img src="https://unpkg.com/lucide-static@latest/icons/share-2.svg" class="w-6 h-6 text-gray-600">
-                </div>
-
-                <div class="space-y-4">
-                    <div class="relative pl-6">
-                        <div class="absolute left-0 top-4 w-4 h-4 bg-blue-500 rounded-full"></div>
-                        <div class="bg-white/90 p-4 rounded-xl shadow-sm">
-                            <div class="flex items-center gap-3">
-                                <img src="https://unpkg.com/lucide-static@latest/icons/landmark.svg" class="w-6 h-6 text-amber-600">
-                                <div>
-                                    <h3 class="font-medium text-gray-800">浅草寺</h3>
-                                    <p class="text-sm text-gray-600">09:00 - 11:00</p>
-                                </div>
-                            </div>
+        <!-- 个人资料页 -->
+        <div class="mockup-phone border-indigo-200/50">
+            <div class="phone-screen bg-transparent p-4 space-y-6">
+                <div class="bg-white/20 backdrop-blur-lg rounded-2xl p-6 text-center">
+                    <img src="https://source.unsplash.com/100x100/?face" class="w-20 h-20 rounded-full mx-auto mb-4">
+                    <h2 class="text-xl font-bold text-indigo-900 mb-2">Your_Name</h2>
+                    <div class="flex justify-center gap-4 text-indigo-600 mb-4">
+                        <div>
+                            <div class="font-bold">1.2k</div>
+                            <div class="text-xs">关注</div>
+                        </div>
+                        <div>
+                            <div class="font-bold">3.8k</div>
+                            <div class="text-xs">粉丝</div>
                         </div>
                     </div>
-
-                    <div class="relative pl-6">
-                        <div class="absolute left-0 top-4 w-4 h-4 bg-green-500 rounded-full"></div>
-                        <div class="bg-white/90 p-4 rounded-xl shadow-sm">
-                            <div class="flex items-center gap-3">
-                                <img src="https://unpkg.com/lucide-static@latest/icons/tower-control.svg" class="w-6 h-6 text-red-600">
-                                <div>
-                                    <h3 class="font-medium text-gray-800">晴空塔</h3>
-                                    <p class="text-sm text-gray-600">11:30 - 13:30</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="relative pl-6">
-                        <div class="absolute left-0 top-4 w-4 h-4 bg-purple-500 rounded-full"></div>
-                        <div class="bg-white/90 p-4 rounded-xl shadow-sm">
-                            <div class="flex items-center gap-3">
-                                <img src="https://unpkg.com/lucide-static@latest/icons/shopping-cart.svg" class="w-6 h-6 text-blue-600">
-                                <div>
-                                    <h3 class="font-medium text-gray-800">秋叶原</h3>
-                                    <p class="text-sm text-gray-600">14:00 - 17:00</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <button class="bg-indigo-500/10 text-indigo-700 px-6 py-2 rounded-full text-sm font-medium">
+                        编辑资料
+                    </button>
                 </div>
             </div>
         </div>
