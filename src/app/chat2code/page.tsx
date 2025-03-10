@@ -47,7 +47,9 @@ export default function Page() {
         </div>
         {/* right */}
         <div className="w-2/4">
-          {status === 'ready' && <iframe className="h-full w-full" srcDoc={messages[messages.length - 1].content} />}
+          {status === 'ready' && messages.length > 0 && (
+            <iframe className="h-full w-full" srcDoc={messages[messages.length - 1].content} />
+          )}
         </div>
       </div>
     </div>

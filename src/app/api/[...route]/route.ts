@@ -60,6 +60,18 @@ app.post('/chat2code', async (c) => {
   return result.toDataStreamResponse()
 })
 
+app.post('/copyweb', async (c) => {
+  const { messages }: { messages: Message[] } = await c.req.json()
+
+  const result = streamText({
+    model: aiDeepseekLLMWithLog,
+    // system: text2codePromptV1,
+    messages,
+  })
+
+  return result.toDataStreamResponse()
+})
+
 app.post('/reflecting', async (c) => {
   const { text }: { text: string } = await c.req.json()
   const result = await translateWithFeedbackV2(text, 'zh')

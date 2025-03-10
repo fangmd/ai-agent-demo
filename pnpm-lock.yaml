@@ -77,6 +77,9 @@ importers:
       next:
         specifier: 15.1.7
         version: 15.1.7(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      qwen-ai-provider:
+        specifier: ^0.1.0
+        version: 0.1.0(zod@3.24.2)
       react:
         specifier: ^19.0.0
         version: 19.0.0
@@ -4526,6 +4529,12 @@ packages:
 
   quick-format-unescaped@4.0.4:
     resolution: {integrity: sha512-tYC1Q1hgyRuHgloV/YXs2w15unPVh8qfu/qCTfhTYamaw7fyhumKa2yGpdSo87vY32rIclj+4fWYQXUMs9EHvg==}
+
+  qwen-ai-provider@0.1.0:
+    resolution: {integrity: sha512-ylzb71U0WreJPyNOHJTwXvE9+jVSsFhnam5aDfB7hBSUuEajYFIGcvhhuQUgUE43OIpxINMgGHKSicpwJ8x/XQ==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      zod: ^3.24.1
 
   radash@12.1.0:
     resolution: {integrity: sha512-b0Zcf09AhqKS83btmUeYBS8tFK7XL2e3RvLmZcm0sTdF1/UUlHSsjXdCcWNxe7yfmAlPve5ym0DmKGtTzP6kVQ==}
@@ -10704,6 +10713,12 @@ snapshots:
   queue-microtask@1.2.3: {}
 
   quick-format-unescaped@4.0.4: {}
+
+  qwen-ai-provider@0.1.0(zod@3.24.2):
+    dependencies:
+      '@ai-sdk/provider': 1.0.9
+      '@ai-sdk/provider-utils': 2.1.10(zod@3.24.2)
+      zod: 3.24.2
 
   radash@12.1.0: {}
 
