@@ -4,6 +4,7 @@ import { useChat } from '@ai-sdk/react'
 import { useScrollToBottom } from '@/hooks/use-scroll-to-bottom'
 import { Markdown } from '@/components/markdown'
 import { toast } from 'sonner'
+import { useRef, useState } from 'react'
 
 export default function Page() {
   const { messages, input, handleInputChange, handleSubmit, status } = useChat({
@@ -17,6 +18,9 @@ export default function Page() {
     },
   })
   const [messagesContainerRef, messagesEndRef] = useScrollToBottom<HTMLDivElement>()
+
+  const [files, setFiles] = useState<FileList | undefined>(undefined)
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   return (
     <div className="flex h-screen w-screen flex-col">
@@ -38,11 +42,35 @@ export default function Page() {
           </div>
 
           <form
-            onSubmit={handleSubmit}
+            onSubmit={(event) => {
+              handleSubmit(event, {
+                experimental_attachments: files,
+              })
+
+              setFiles(undefined)
+
+              if (fileInputRef.current) {
+                fileInputRef.current.value = ''
+              }
+            }}
             className="absolute bottom-0 left-4 right-8 mb-8 overflow-hidden rounded-lg shadow-xl"
           >
             {status}
-            <input className="w-full p-2" value={input} placeholder="Say something..." onChange={handleInputChange} />
+            <div className="flex gap-2">
+              <input className="flex-1 p-2" value={input} placeholder="Say something..." onChange={handleInputChange} />
+
+              <input
+                type="file"
+                className=""
+                onChange={(event) => {
+                  if (event.target.files) {
+                    setFiles(event.target.files)
+                  }
+                }}
+                multiple
+                ref={fileInputRef}
+              />
+            </div>
           </form>
         </div>
         {/* right */}
