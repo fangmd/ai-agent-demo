@@ -7,6 +7,7 @@ import { mastra } from '@/mastra'
 import { translateWithFeedback, translateWithFeedbackV2 } from '@/reflecting'
 import { aiClaudeLLM, aiClaudeLLMWithLog, aiDeepseekLLMWithLog, qwenVLMAx } from '@/lib/llm'
 import { png2codePromptV1, text2codePromptV1 } from '@/lib/prompt/text2code'
+import { tools } from '@/lib/tools'
 
 export const runtime = 'nodejs'
 
@@ -67,6 +68,31 @@ app.post('/copyweb', async (c) => {
     model: aiClaudeLLM,
     system: png2codePromptV1,
     messages,
+  })
+
+  return result.toDataStreamResponse()
+})
+
+app.post('/chat-pdf', async (c) => {
+  const { messages }: { messages: Message[] } = await c.req.json()
+
+  const result = streamText({
+    model: aiClaudeLLM,
+    system: 'You are a helpful assistant that can answer questions about the uploaded PDF file.',
+    messages,
+  })
+
+  return result.toDataStreamResponse()
+})
+
+app.post('/chat-tools', async (c) => {
+  const { messages }: { messages: Message[] } = await c.req.json()
+
+  const result = streamText({
+    model: aiDeepseekLLMWithLog,
+    // system: 'You are a helpful assistant that can answer questions about the uploaded PDF file.',
+    messages,
+    tools,
   })
 
   return result.toDataStreamResponse()

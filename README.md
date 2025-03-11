@@ -15,6 +15,7 @@
 - [x] 基于数据库的问答系统
 - [x] AI Recruiter
 - [x] Self-Reflecting
+- [x] tools usage
 
 
 ## 基于数据库的问答系统
