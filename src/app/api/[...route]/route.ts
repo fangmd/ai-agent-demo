@@ -92,7 +92,7 @@ app.post('/chat-tools', async (c) => {
     model: aiDeepseekLLMWithLog,
     // system: 'You are a helpful assistant that can answer questions about the uploaded PDF file.',
     messages,
-    tools,
+    tools: tools,
   })
 
   return result.toDataStreamResponse()
