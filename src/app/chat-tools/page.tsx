@@ -38,7 +38,8 @@ export default function Page() {
                   <div className="text-sm font-bold">{m.role === 'user' ? 'User: ' : 'AI: '}</div>
                   {m.parts.map((p, index) => {
                     if (p.type === 'text') {
-                      return <Markdown key={index}>{p.text}</Markdown>
+                      // <Markdown key={index}>{p.text}</Markdown>
+                      return <div key={index}>{p.text}</div>
                     }
 
                     if (p.type === 'tool-invocation') {
@@ -84,7 +85,12 @@ export default function Page() {
                         }
 
                         if (p.toolInvocation.state === 'result') {
-                          return <div key={callId}>Location access allowed: {p.toolInvocation.result}</div>
+                          return (
+                            <div key={callId}>
+                              <div>{p.toolInvocation.args.message}</div>
+                              <div>User result: {p.toolInvocation.result}</div>
+                            </div>
+                          )
                         }
                       }
 
