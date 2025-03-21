@@ -8,6 +8,7 @@ import { translateWithFeedback, translateWithFeedbackV2 } from '@/reflecting'
 import { aiClaudeLLM, aiClaudeLLMWithLog, aiDeepseekLLMWithLog, qwenVLMAx } from '@/lib/llm'
 import { png2codePromptV1, text2codePromptV1 } from '@/lib/prompt/text2code'
 import { tools } from '@/lib/tools'
+import { getPuppeteerTools } from '@/lib/mcp'
 
 export const runtime = 'nodejs'
 
@@ -92,7 +93,7 @@ app.post('/chat-tools', async (c) => {
     model: aiDeepseekLLMWithLog,
     // system: 'You are a helpful assistant that can answer questions about the uploaded PDF file.',
     messages,
-    tools: tools,
+    tools: { ...tools },
   })
 
   return result.toDataStreamResponse()

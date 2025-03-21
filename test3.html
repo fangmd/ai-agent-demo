@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信息展示卡片</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white bg-opacity-80 rounded-xl shadow-lg p-6 w-full max-w-[375px] backdrop-filter backdrop-blur-md border border-gray-200">
+        
+        <div class="text-center space-y-4">
+            <div class="text-xl font-semibold text-gray-900 flex items-center justify-center gap-2">
+                <img src="https://unpkg.com/lucide-static@latest/icons/user.svg" alt="姓名" class="w-5 h-5">
+                <span>周杰伦</span>
+            </div>
+            <div class="grid grid-cols-2 gap-4 text-gray-600 text-sm">
+                <div class="flex items-center gap-1 justify-center">
+                    <img src="https://unpkg.com/lucide-static@latest/icons/cake.svg" alt="年龄" class="w-4 h-4">
+                    <span>年龄：12岁</span>
+                </div>
+                <div class="flex items-center gap-1 justify-center">
+                    <img src="https://unpkg.com/lucide-static@latest/icons/clock.svg" alt="工作时长" class="w-4 h-4">
+                    <span>工作时长：120h</span>
+                </div>
+            </div>           
+        </div>
+    </div>
+</body>
+</html>
