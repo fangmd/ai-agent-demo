@@ -1,14 +1,15 @@
 import { runSqlSearchGraph } from '@/sql-search'
 import { Hono } from 'hono'
 import { handle } from 'hono/vercel'
-import { streamText, Message } from 'ai'
+import { streamText, Message, experimental_generateImage as generateImage } from 'ai'
 import { deepseek } from '@ai-sdk/deepseek'
 import { mastra } from '@/mastra'
 import { translateWithFeedback, translateWithFeedbackV2 } from '@/reflecting'
-import { aiClaudeLLM, aiClaudeLLMWithLog, aiDeepseekLLMWithLog, qwenVLMAx } from '@/lib/llm'
+import { aiClaudeLLM, aiClaudeLLMWithLog, aiDeepseekLLMWithLog, openaiImage, qwenVLMAx } from '@/lib/llm'
 import { png2codePromptV1, text2codePromptV1 } from '@/lib/prompt/text2code'
 import { tools } from '@/lib/tools'
 import { getPuppeteerTools } from '@/lib/mcp'
+import { openai } from '@ai-sdk/openai'
 
 export const runtime = 'nodejs'
 
@@ -97,6 +98,26 @@ app.post('/chat-tools', async (c) => {
   })
 
   return result.toDataStreamResponse()
+})
+
+app.post('/generate-image', async (c) => {
+  const { prompt }: { prompt: string } = await c.req.json()
+
+  try {
+    const { image } = await generateImage({
+      model: openaiImage,
+      prompt: prompt,
+    })
+
+    console.log('image', image)
+
+    return c.json({
+      base64: image.base64,
+    })
+  } catch (error) {
+    console.error('Error generating image:', error)
+    return c.json({ error: 'Failed to generate image' }, 500)
+  }
 })
 
 app.post('/reflecting', async (c) => {

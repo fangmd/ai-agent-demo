@@ -4,6 +4,7 @@ import { logMiddleware } from '../middleware/log'
 import { qwen } from 'qwen-ai-provider'
 import { createQwen } from 'qwen-ai-provider'
 import { createAnthropic } from '@ai-sdk/anthropic'
+import { createOpenAI } from '@ai-sdk/openai'
 
 export const aiDeepseekLLM = createDeepSeek({
   apiKey: process.env.DEEPSEEK_API_KEY_HUOS ?? '',
@@ -37,3 +38,10 @@ export const aiClaudeLLMWithLog = wrapLanguageModel({
   model: aiClaudeLLM,
   middleware: logMiddleware,
 })
+
+export const openAIBase = createOpenAI({
+  apiKey: process.env.CLOSE_API ?? '',
+  baseURL: 'https://api.openai-proxy.org/v1',
+})
+
+export const openaiImage = openAIBase.image('dall-e-3')
