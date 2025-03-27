@@ -14,7 +14,7 @@ export default function ImageGeneration() {
 
     setLoading(true)
     try {
-      const response = await fetch('/api/generate-image', {
+      const response = await fetch('/api/genimg', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

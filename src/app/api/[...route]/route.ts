@@ -10,6 +10,7 @@ import { png2codePromptV1, text2codePromptV1 } from '@/lib/prompt/text2code'
 import { tools } from '@/lib/tools'
 import { getPuppeteerTools } from '@/lib/mcp'
 import { openai } from '@ai-sdk/openai'
+import genimg from './genimg'
 
 export const runtime = 'nodejs'
 
@@ -100,26 +101,6 @@ app.post('/chat-tools', async (c) => {
   return result.toDataStreamResponse()
 })
 
-app.post('/generate-image', async (c) => {
-  const { prompt }: { prompt: string } = await c.req.json()
-
-  try {
-    const { image } = await generateImage({
-      model: openaiImage,
-      prompt: prompt,
-    })
-
-    console.log('image', image)
-
-    return c.json({
-      base64: image.base64,
-    })
-  } catch (error) {
-    console.error('Error generating image:', error)
-    return c.json({ error: 'Failed to generate image' }, 500)
-  }
-})
-
 app.post('/reflecting', async (c) => {
   const { text }: { text: string } = await c.req.json()
   const result = await translateWithFeedbackV2(text, 'zh')
@@ -177,6 +158,8 @@ app.get('/web3/fmList', (c) => {
     },
   })
 })
+
+app.route('/genimg', genimg)
 
 export const GET = handle(app)
 export const POST = handle(app)
